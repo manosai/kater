@@ -137,6 +137,7 @@ $(".submit").click(function(){
 
 	var postRequest = {'email': email, 'pass': pass, 'fname': fname, 'lname': lname, 'address': address, 'city': city, 'state': state, 'phone': phone, 'budget': budget, 'allergies': allergies, 'meals': meals, 'meats': meats, 'cuisines': cuisines, 'healthy': healthy};
 
+	/*
 	$.ajax({
 		url: "/create_user",
 		type: "POST",
@@ -147,6 +148,25 @@ $(".submit").click(function(){
 		},
 		error: function(data) {
 			alert("Failure");
+			return;
+		}
+	});*/
+
+	var first = "lolol";
+	var last = "mother";
+
+	console.log(first+last);
+
+	$.ajax({
+		'async': false,
+		'url': '/create_user',
+		'type': 'GET',
+		'data': {
+			'first_name': first,
+			'last_name' : last
+		},
+		'success': function(data) {
+			alert("Success");
 			return;
 		}
 	});
