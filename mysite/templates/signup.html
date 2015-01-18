@@ -1,20 +1,427 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-	<script src="/media/js/custom.js"></script>
-	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Kater - A New Way to Eat</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="/media/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/media/css/signup.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="/media/css/landing-page.css" rel="stylesheet">
+    <link href="/media/css/bootstrap-switch.css" rel="stylesheet">
+
+
+    <!-- Custom Fonts -->
+    <link href="/media/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
 </head>
 
 <body>
-<legend>Personal information:</legend>
-First name:<br>
-<input type="text" id="firstname" value="Mickey">
-<br>
-Last name:<br>
-<input type="text" id="lastname" value="Mouse">
-<br><br>
-<button onClick="javascript:signup();">Submit</button>
 
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div id="logo">
+                    <a href="home.html" class="navbar-brand" target="_self" title="Kater"></a>
+                </div>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                   <li>
+                        <a href="login.html">Log In</a>
+                    </li>
+                    <li>
+                        <a href="signup.html">Sign Up</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+
+    <div class="content-section-b">
+
+        <div class="container">
+
+            <div class="row">
+
+                    <div id = "clearfix"></div>
+                    <span style="padding-left:100px"></span> 
+
+                
+                    <!-- multistep form -->
+                    <form id="msform">
+                        <!-- progressbar -->
+                        <ul id="progressbar">
+                            <li class="active">Account Setup</li>
+                            <li>Personal Details</li>
+                            <li>Food Preferences</li>
+                        </ul>
+
+
+                        <!-- fieldsets -->
+                        <fieldset>
+                            <h2 class="fs-title">Create your account</h2>
+                            <h3 class="fs-subtitle">Start your journey here</h3>
+                            <input class="textinput" type="text" name="email" placeholder="Email" />
+                            <input class="textinput" type="password" name="pass" placeholder="Password" />
+                            <input class="textinput" type="password" name="cpass" placeholder="Confirm Password" />
+                            <input type="button" name="next" class="next action-button" value="Next" />
+                        </fieldset>
+                        <fieldset>
+                            <h2 class="fs-title">Personal Details</h2>
+                            <h3 class="fs-subtitle">Help us get to know you</h3>
+                            <input class="textinput" type="text" name="fname" placeholder="First Name" />
+                            <input class="textinput" type="text" name="lname" placeholder="Last Name" />
+                            <input class="textinput" type="text" name="address" placeholder="Address" />
+                            <input class="textinput" type="text" name="city" placeholder="City" />
+                            <select class="textinput">
+                                <option value="AL">Alabama</option>
+                                <option value="AK">Alaska</option>
+                                <option value="AZ">Arizona</option>
+                                <option value="AR">Arkansas</option>
+                                <option value="CA">California</option>
+                                <option value="CO">Colorado</option>
+                                <option value="CT">Connecticut</option>
+                                <option value="DE">Delaware</option>
+                                <option value="DC">District Of Columbia</option>
+                                <option value="FL">Florida</option>
+                                <option value="GA">Georgia</option>
+                                <option value="HI">Hawaii</option>
+                                <option value="ID">Idaho</option>
+                                <option value="IL">Illinois</option>
+                                <option value="IN">Indiana</option>
+                                <option value="IA">Iowa</option>
+                                <option value="KS">Kansas</option>
+                                <option value="KY">Kentucky</option>
+                                <option value="LA">Louisiana</option>
+                                <option value="ME">Maine</option>
+                                <option value="MD">Maryland</option>
+                                <option value="MA">Massachusetts</option>
+                                <option value="MI">Michigan</option>
+                                <option value="MN">Minnesota</option>
+                                <option value="MS">Mississippi</option>
+                                <option value="MO">Missouri</option>
+                                <option value="MT">Montana</option>
+                                <option value="NE">Nebraska</option>
+                                <option value="NV">Nevada</option>
+                                <option value="NH">New Hampshire</option>
+                                <option value="NJ">New Jersey</option>
+                                <option value="NM">New Mexico</option>
+                                <option value="NY">New York</option>
+                                <option value="NC">North Carolina</option>
+                                <option value="ND">North Dakota</option>
+                                <option value="OH">Ohio</option>
+                                <option value="OK">Oklahoma</option>
+                                <option value="OR">Oregon</option>
+                                <option value="PA">Pennsylvania</option>
+                                <option value="RI">Rhode Island</option>
+                                <option value="SC">South Carolina</option>
+                                <option value="SD">South Dakota</option>
+                                <option value="TN">Tennessee</option>
+                                <option value="TX">Texas</option>
+                                <option value="UT">Utah</option>
+                                <option value="VT">Vermont</option>
+                                <option value="VA">Virginia</option>
+                                <option value="WA">Washington</option>
+                                <option value="WV">West Virginia</option>
+                                <option value="WI">Wisconsin</option>
+                                <option value="WY">Wyoming</option>
+                            </select>
+                            <input class="textinput" type="tel" name="phone" placeholder="Phone" />
+                            <input type="button" name="previous" class="previous action-button" value="Previous" />
+                            <input type="button" name="next" class="next action-button" value="Next" />
+                        </fieldset>
+                        <fieldset>
+                            <h2 class="fs-title">Food Preferences</h2>
+                            <h3 class="fs-subtitle">Let us know a little about what you like</h3>
+                            <input class="textinput" type="text" name="budget" placeholder="Weekly Budget" />
+                            <input class="textinput" type="text" name="allergies" placeholder="Allergies (comma separated)" />
+
+                            <div class="form-group">
+                                <p id="check">Meals</p>
+                                <div id="days" class="checkbox">
+                                    <div class="container" style="padding-left:80px; padding-bottom:10px;">
+                                        <div id="labelChecks">Sunday</div>
+                                        <div id="labelChecks">Monday</div>
+                                        <div id="labelChecks">Tuesday</div>
+                                        <div id="labelChecks">Wednesday</div>
+                                        <div id="labelChecks">Thursday</div>
+                                        <div id="labelChecks">Friday</div>
+                                        <div id="labelChecks">Saturday</div>
+                                    </div>
+
+                                    <p id="labelChecks"> Breakfast</p>
+                                    <label id="daysCheckbox">
+                                        <input type="checkbox" value="option1" aria-label="...">
+                                    </label>
+                                    <label id="daysCheckbox">
+                                        <input type="checkbox" value="option1" aria-label="...">
+                                    </label>
+                                    <label id="daysCheckbox">
+                                        <input type="checkbox" value="option1" aria-label="...">
+                                    </label>
+                                    <label id="daysCheckbox">
+                                        <input type="checkbox" value="option1" aria-label="...">
+                                    </label>
+                                    <label id="daysCheckbox">
+                                        <input type="checkbox" value="option1" aria-label="...">
+                                    </label>
+                                    <label id="daysCheckbox">
+                                        <input type="checkbox" value="option1" aria-label="...">
+                                    </label>
+                                    <label id="daysCheckbox">
+                                        <input type="checkbox" value="option1" aria-label="...">
+                                    </label>
+
+
+                                    <p id="labelChecks"> Lunch</p>
+                                    <label id="daysCheckbox">
+                                        <input type="checkbox" value="option1" aria-label="...">
+                                    </label>
+                                    <label id="daysCheckbox">
+                                        <input type="checkbox" value="option1" aria-label="...">
+                                    </label>
+                                    <label id="daysCheckbox">
+                                        <input type="checkbox" value="option1" aria-label="...">
+                                    </label>
+                                    <label id="daysCheckbox">
+                                        <input type="checkbox" value="option1" aria-label="...">
+                                    </label>
+                                    <label id="daysCheckbox">
+                                        <input type="checkbox" value="option1" aria-label="...">
+                                    </label>
+                                    <label id="daysCheckbox">
+                                        <input type="checkbox" value="option1" aria-label="...">
+                                    </label>
+                                    <label id="daysCheckbox">
+                                        <input type="checkbox" value="option1" aria-label="...">
+                                    </label>
+
+                                    <p id="labelChecks"> Dinner</p>
+                                    <label id="daysCheckbox">
+                                        <input type="checkbox" value="option1" aria-label="...">
+                                    </label>
+                                    <label id="daysCheckbox">
+                                        <input type="checkbox" value="option1" aria-label="...">
+                                    </label>
+                                    <label id="daysCheckbox">
+                                        <input type="checkbox" value="option1" aria-label="...">
+                                    </label>
+                                    <label id="daysCheckbox">
+                                        <input type="checkbox" value="option1" aria-label="...">
+                                    </label>
+                                    <label id="daysCheckbox">
+                                        <input type="checkbox" value="option1" aria-label="...">
+                                    </label>
+                                    <label id="daysCheckbox">
+                                        <input type="checkbox" value="option1" aria-label="...">
+                                    </label>
+                                    <label id="daysCheckbox">
+                                        <input type="checkbox" value="option1" aria-label="...">
+                                    </label>
+
+                                </div>
+
+                            </div>
+
+                            <div class="form-group">
+                                <p id="check">Eaten Meats</p>
+                                <div id="check" class="checkbox">
+                                    <label class="checkbox-inline">
+                                      <input type="checkbox" id="chicken" value="option1"> Chicken
+                                    </label>
+                                    <label class="checkbox-inline">
+                                      <input type="checkbox" id="pork" value="option2"> Pork
+                                    </label>
+                                    <label class="checkbox-inline">
+                                      <input type="checkbox" id="beef" value="option3"> Beef
+                                    </label>
+                                    <label class="checkbox-inline">
+                                      <input type="checkbox" id="seafood" value="option4"> Seafood
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <p id="check">Cusines</p>
+                                <div id="check" class="checkbox">
+                                    <label class="checkbox-inline">
+                                      <input type="checkbox" id="namerican" value="option1"> American (New)
+                                    </label>
+                                    <label class="checkbox-inline">
+                                      <input type="checkbox" id="tamerican" value="option2"> American (Traditional)
+                                    </label>
+                                    <label class="checkbox-inline">
+                                      <input type="checkbox" id="brazilian" value="option3"> Brazilian
+                                    </label>
+                                    <label class="checkbox-inline">
+                                      <input type="checkbox" id="british" value="option4"> British
+                                    </label>
+                                    <label class="checkbox-inline">
+                                      <input type="checkbox" id="chinese" value="option5"> Chinese
+                                    </label>
+                                    <label class="checkbox-inline">
+                                      <input type="checkbox" id="filipino" value="option6"> Filipino
+                                    </label>
+                                    <label class="checkbox-inline">
+                                      <input type="checkbox" id="french" value="option7"> French
+                                    </label>
+                                </div>
+                                <div id="check" class="checkbox">
+                                    <label class="checkbox-inline">
+                                      <input type="checkbox" id="german" value="option8"> German
+                                    </label>
+                                    <label class="checkbox-inline">
+                                      <input type="checkbox" id="greek" value="option9"> Greek
+                                    </label>
+                                    <label class="checkbox-inline">
+                                      <input type="checkbox" id="indian" value="option10"> Indian
+                                    </label>
+                                    <label class="checkbox-inline">
+                                      <input type="checkbox" id="italian" value="option11"> Italian
+                                    </label>
+                                    <label class="checkbox-inline">
+                                      <input type="checkbox" id="japanese" value="option12"> Japanese
+                                    </label>
+                                    <label class="checkbox-inline">
+                                      <input type="checkbox" id="korean" value="option13"> Korean
+                                    </label>
+                                    <label class="checkbox-inline">
+                                      <input type="checkbox" id="mediterranean" value="option14"> Mediterranean
+                                    </label>
+                                    <label class="checkbox-inline">
+                                      <input type="checkbox" id="mexican" value="option15"> Mexican
+                                    </label>
+                                    <label class="checkbox-inline">
+                                      <input type="checkbox" id="thai" value="option16"> Thai
+                                    </label>
+                                </div>
+                                <div id="check" class="checkbox">
+                                    
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <p id="check">Special Options</p>
+                                <div id="check" class="checkbox">
+                                    <label class="checkbox-inline">
+                                      <input type="checkbox" id="healthy" value="option1"> Healthier Choices
+                                    </label>
+                                </div>
+                            </div>
+
+                            
+
+                            <input type="button" name="previous" class="previous action-button" value="Previous" />
+                            <input type="submit" name="submit" class="submit action-button" value="Submit" />
+                        </fieldset>
+                    </form>
+
+            </div>    
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+    <!-- /.content-section-b -->
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="list-inline">
+                        <li>
+                            <a href="#home">Home</a>
+                        </li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li>
+                            <a href="login.html">Log In</a>
+                        </li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li>
+                            <a href="signup.html">Sign Up</a>
+                        </li>
+                    </ul>
+                    <p class="copyright text-muted small">Copyright &copy; Kater 2015. All Rights Reserved</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js" type="text/javascript"></script>
+    <!-- jQuery easing plugin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js" type="text/javascript"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/media/js/bootstrap-switch.js"></script>
+    <script src="/media/js/bootstrap.min.js"></script>
+    <script src="/media/js/signup.js"></script>
 
 </body>
+
 </html>
