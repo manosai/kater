@@ -8,7 +8,6 @@ var left, opacity, scale; //fieldset properties which we will animate
 var animating; //flag to prevent quick multi-click glitches
 
 $(".next").click(function(){
-	$("[name='my-checkbox']").bootstrapSwitch();
 	if(animating) return false;
 	animating = true;
 	
@@ -79,5 +78,82 @@ $(".previous").click(function(){
 });
 
 $(".submit").click(function(){
+	var email = $("input[name='email']").val();
+	var pass = $("input[name='pass']").val();
+	var cpass = $("input[name='cpass']").val();
+	var fname = $("input[name='fname']").val();
+	var lname = $("input[name='lname']").val();
+	var address = $("input[name='address']").val();
+	var city = $("input[name='city']").val();
+	var state = $("select[name='state']").val();
+	var phone = $("input[name='phone']").val();
+
+	var budget = $("input[name='budget']").val();
+	var allergies = $("input[name='allergies']").val();
+
+	var meals = "";
+	var mealsArr = $("input[type='checkbox']");
+	for (i=0; i<21; i++) {
+		var meal = mealsArr[i];
+		if (meal.checked) {
+			meals += "1";
+		}
+		else {
+			meals += "0";
+		}
+	}
+
+	var meats = "";
+	if ($("#chicken")[0].checked) {
+		meats +="Chicken,"
+	}
+	if ($("#pork")[0].checked) {
+		meats +="Pork,"
+	}
+	if ($("#beef")[0].checked) {
+		meats +="Beef,"
+	}
+	if ($("#seafood")[0].checked) {
+		meats +="Seafood,"
+	}
+
+	var cuisines = "";
+	var cuisinesChecks = $(".cuisineCheck");
+	var cuisineLabels = $(".cuisineLabel");
+	alert("hey");
+	for (i=0; i<16; i++) {
+
+		if (cuisinesChecks[i].checked) {
+			cuisines += cuisineLabels[i].innerText + ",";
+		}
+	}
+
+	var healthy;
+	if ($("#healthy")[0].checked) {
+		healthy = true;
+	}
+	else {
+		healthy = false;
+	}
+
+	var postRequest = {'email': email, 'pass': pass, 'fname': fname, 'lname': lname, 'address': address, 'city': city, 'state': state, 'phone': phone, 'budget': budget, 'allergies': allergies, 'meals': meals, 'meats': meats, 'cuisines': cuisines, 'healthy': healthy};
+
+	$.ajax({
+		'async': false,
+		'url': '/create_user',
+		'type': 'POST',
+		'data': {
+			'data': postRequest
+		},
+		'success': function(data) {
+			alert("Success");
+			return false;
+		},
+		'error': function(data) {
+			alert("Failure");
+			return false;
+		}
+	});
 	return false;
+
 })
