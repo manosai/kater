@@ -54,7 +54,7 @@ html {
 	text-align:center;
 }
 
-#daysCheckbox {
+.daysCheckbox {
 	margin-left: 25px;
 	margin-right: 35px;
 }
