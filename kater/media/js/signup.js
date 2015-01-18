@@ -120,7 +120,6 @@ $(".submit").click(function(){
 	var cuisines = "";
 	var cuisinesChecks = $(".cuisineCheck");
 	var cuisineLabels = $(".cuisineLabel");
-	alert("hey");
 	for (i=0; i<16; i++) {
 
 		if (cuisinesChecks[i].checked) {
@@ -147,13 +146,11 @@ $(".submit").click(function(){
 		},
 		'success': function(data) {
 			alert("Success");
-			return false;
+			return;
 		},
 		'error': function(data) {
 			alert("Failure");
-			return false;
+			return;
 		}
 	});
-	return false;
-
 })
