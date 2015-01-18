@@ -138,17 +138,14 @@ $(".submit").click(function(){
 	var postRequest = {'email': email, 'pass': pass, 'fname': fname, 'lname': lname, 'address': address, 'city': city, 'state': state, 'phone': phone, 'budget': budget, 'allergies': allergies, 'meals': meals, 'meats': meats, 'cuisines': cuisines, 'healthy': healthy};
 
 	$.ajax({
-		'async': false,
-		'url': '/create_user',
-		'type': 'POST',
-		'data': {
-			'data': postRequest
-		},
-		'success': function(data) {
+		url: "/create_user",
+		type: "POST",
+		data: postRequest,
+		success: function(data) {
 			alert("Success");
 			return;
 		},
-		'error': function(data) {
+		error: function(data) {
 			alert("Failure");
 			return;
 		}
