@@ -79,9 +79,9 @@ WSGI_APPLICATION = 'kater.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'kater',
+        'NAME': 'kater_db',
 	'USER': 'root',
-	'PASSWORD': 'password', 
+	'PASSWORD': 'k@ter1867', 
 	'HOST': '', 
 	'PORT': ''
     }

@@ -91,83 +91,86 @@ $(".submit").click(function(){
 	var budget = $("input[name='budget']").val();
 	var allergies = $("input[name='allergies']").val();
 
-	var meals = "";
-	var mealsArr = $("input[type='checkbox']");
-	for (i=0; i<21; i++) {
-		var meal = mealsArr[i];
-		if (meal.checked) {
-			meals += "1";
+	if (budget != "" && pass == cpass) {
+		var meals = "";
+		var mealsArr = $("input[type='checkbox']");
+		for (i=0; i<21; i++) {
+			var meal = mealsArr[i];
+			if (meal.checked) {
+				meals += "1";
+			}
+			else {
+				meals += "0";
+			}
+		}
+
+		var meats = "";
+		if ($("#chicken")[0].checked) {
+			meats +="Chicken,"
+		}
+		if ($("#pork")[0].checked) {
+			meats +="Pork,"
+		}
+		if ($("#beef")[0].checked) {
+			meats +="Beef,"
+		}
+		if ($("#seafood")[0].checked) {
+			meats +="Seafood,"
+		}
+
+		if (meats.length > 0) {
+			meats = meats.substring(0,meats.length-1);
+		}
+
+		var cuisines = "";
+		var cuisinesChecks = $(".cuisineCheck");
+		var cuisineLabels = $(".cuisineLabel");
+		for (i=0; i<16; i++) {
+
+			if (cuisinesChecks[i].checked) {
+				cuisines += cuisineLabels[i].innerText + ",";
+			}
+		}
+
+		if (cuisines.length > 0) {
+			cuisines = cuisines.substring(0,cuisines.length-1);
+		}
+
+		var healthy;
+		if ($("#healthy")[0].checked) {
+			healthy = true;
 		}
 		else {
-			meals += "0";
+			healthy = false;
 		}
-	}
 
-	var meats = "";
-	if ($("#chicken")[0].checked) {
-		meats +="Chicken,"
-	}
-	if ($("#pork")[0].checked) {
-		meats +="Pork,"
-	}
-	if ($("#beef")[0].checked) {
-		meats +="Beef,"
-	}
-	if ($("#seafood")[0].checked) {
-		meats +="Seafood,"
-	}
+		var postRequest = {'email': email, 'pass': pass, 'fname': fname, 'lname': lname, 'address': address, 'city': city, 'state': state, 'phone': phone, 'budget': budget, 'allergies': allergies, 'meals': meals, 'meats': meats, 'cuisines': cuisines, 'healthy': healthy};
 
-	var cuisines = "";
-	var cuisinesChecks = $(".cuisineCheck");
-	var cuisineLabels = $(".cuisineLabel");
-	for (i=0; i<16; i++) {
+		console.log(postRequest);
 
-		if (cuisinesChecks[i].checked) {
-			cuisines += cuisineLabels[i].innerText + ",";
+		$.ajax({
+			url: "/create_user/",
+			async: false,
+			type: "GET",
+			data: postRequest,
+			timeout: 1000000,
+			success: function(data) {
+				console.log(data);
+				$.removeCookie('user_id');
+				$.removeCookie('fname');
+				$.cookie('user_id', data, { expires: 7, path: '/' });
+				$.cookie('fname', fname, { expires: 7, path: '/' });
+				window.location = "/login/";
+				return true;
+			},
+			error: function (textStatus, errorThrown) {
+				//alert("Failure");
+				return false;
+			}
+		});
 		}
-	}
 
-	var healthy;
-	if ($("#healthy")[0].checked) {
-		healthy = true;
-	}
-	else {
-		healthy = false;
-	}
+	
 
-	var postRequest = {'email': email, 'pass': pass, 'fname': fname, 'lname': lname, 'address': address, 'city': city, 'state': state, 'phone': phone, 'budget': budget, 'allergies': allergies, 'meals': meals, 'meats': meats, 'cuisines': cuisines, 'healthy': healthy};
-
-	/*
-	$.ajax({
-		url: "/create_user",
-		type: "POST",
-		data: postRequest,
-		success: function(data) {
-			alert("Success");
-			return;
-		},
-		error: function(data) {
-			alert("Failure");
-			return;
-		}
-	});*/
-
-	var first = "lolol";
-	var last = "mother";
-
-	console.log(first+last);
-
-	$.ajax({
-		'async': false,
-		'url': '/create_user',
-		'type': 'GET',
-		'data': {
-			'first_name': first,
-			'last_name' : last
-		},
-		'success': function(data) {
-			alert("Success");
-			return;
-		}
-	});
+	return false;
 })

@@ -20,11 +20,13 @@ import urllib2
 
 import oauth2
 
+from random import randint
+
 
 API_HOST = 'api.yelp.com'
 DEFAULT_TERM = 'dinner'
 DEFAULT_LOCATION = 'San Francisco, CA'
-SEARCH_LIMIT = 15
+SEARCH_LIMIT = 7
 SEARCH_PATH = '/v2/search/'
 BUSINESS_PATH = '/v2/business/'
 
@@ -63,8 +65,6 @@ def request(host, path, url_params=None):
     token = oauth2.Token(TOKEN, TOKEN_SECRET)
     oauth_request.sign_request(oauth2.SignatureMethod_HMAC_SHA1(), consumer, token)
     signed_url = oauth_request.to_url()
-    
-    print 'Querying {0} ...'.format(url)
 
     conn = urllib2.urlopen(signed_url, None)
     try:
@@ -101,7 +101,7 @@ def get_business(business_id):
 
     return request(API_HOST, business_path)
 
-def query_api(term, location):
+def query_api(term, meal_slot, location):
     """Queries the API by the input values from the user.
     Args:
         term (str): The search term to query.
@@ -112,21 +112,20 @@ def query_api(term, location):
     businesses = response.get('businesses')
 
     if not businesses:
-        print 'No businesses for {0} in {1} found.'.format(term, location)
         return
 
-    business_id = businesses[0]['id']
 
-    print businesses 
-    print '{0} businesses found, querying business info for the top result "{1}" ...'.format(
-        len(businesses),
-        business_id
-    )
+    ## narrow down restaurants to one
+    length = len(businesses)
+    ind = randint(0, length -1)
+    final_restaurant = businesses[ind]
 
-    response = get_business(business_id)
-
-    ##print 'Result for business "{0}" found:'.format(business_id)
-    pprint.pprint(response, indent=2)
+    name = final_restaurant['name']
+    restaurant_phone = final_restaurant['display_phone']
+    restaurant_address = final_restaurant['location']['address'][0] + ' Philadelphia, PA'
+    print restaurant_phone
+    print restaurant_address
+    return (name, restaurant_phone, restaurant_address, meal_slot)
 
 
 def main():

@@ -16,6 +16,7 @@
 
     <!-- Custom CSS -->
     <link href="/media/css/landing-page.css" rel="stylesheet">
+    <link rel="icon" href="/media/img/favicon.ico" type="image/x-icon" />
 
     <!-- Custom Fonts -->
     <link href="/media/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -120,6 +121,18 @@
     <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
     <!-- Bootstrap Core JavaScript -->
     <script src="/media/js/bootstrap.min.js"></script>
+    <script src="/media/js/jquery.cookie.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            var id = $.cookie('user_id');
+            var fname = $.cookie('fname');
+            if (id != undefined && fname != undefined) {
+                $(".navbar-right").children()[0].children[0].innerText = "Welcome " + fname  + "!";
+                $(".navbar-right").children()[1].remove();
+            }
+      });
+    </script>
 
 </body>
 

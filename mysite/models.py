@@ -16,3 +16,11 @@ class User(models.Model):
 	is_Healthy = models.BooleanField(default = False)
 	schedule = models.CharField(max_length = 500)
 
+class Preferences(models.Model):
+	user_id = models.CharField(max_length=50)
+	restaurant_name = models.CharField(max_length = 50)
+	restaurant_address = models.CharField(max_length = 50)
+	restaurant_number = models.CharField(max_length = 50)
+	item = models.CharField(max_length = 500)
+	item_price = models.CharField(max_length = 50)
+	timeslot = models.CharField(max_length = 50)
